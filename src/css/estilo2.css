@@ -1,0 +1,122 @@
+body{
+    font-family: 'Poppins', sans-serif; /*Usa a fonte Poppins, se caso houver alguma falha, será usada a fonte sans-serif*/
+    max-width: 1280px; /*Coloca todo o conteúdo de 0 até 1280px (Se fosse 500px o conteúdo ficaria comprimido verticalmente)*/
+    margin: auto;/*Divide o espaçamento restante (O resto que os 1280 não completou) e o divide para os dois lados, centralizando o conteúdo*/
+    background-color: #5e5b5bad;
+    color: #333333;
+}
+
+body.modo_escuro{ /*Vai sobescrever a cor de fundo e a cor da letra(Vai ser feito usando Js)*/
+    background-color: #212121;
+    color: #f5f5f5;
+}
+
+header{
+    display: flex; /* Faz o alihamento horizontal das imagens*/
+    justify-content: space-between; /* Faz as imagens ficarem separadas entre si (se fosse o 'space-around' as imagens ficariam coladas)*/
+    padding: 25px;  /*Margem interna de 25px (Para evitar que o conteúdo fique colado na parede)*/
+}
+
+header .logo, /* Para estilizar a class 'logo' e 'imagem_botao' ao mesmo tempo, é só colocar uma virgula*/
+
+header .imagem_botao{/* Estiliza as classes 'logo'e 'imagem_botao' que estão dentro do header (Se houver uma classe dessas fora do header, não será estilizada)*/
+    width: 30px;
+    transition: 0.2s ease-in-out;
+}
+
+header #botao_alterar_tema{ /*Modificando só o 'sol'*/
+    background: none; /*Remove o fundo do Sol (Ficou transparente e deixou de ser cinza)*/
+    border: none; /*Remove a borda*/
+}
+
+header .logo:hover,
+.imagem_botao:hover,
+.cartao_pokemon:hover{ /*Fazer uma interação com o mouse para quando o mesmo passar em cima*/
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+main{
+    padding: 25px;
+}
+
+.listagem_pokemon{ /*está servindo para deixar os cartões lado a lado*/
+    display: flex; 
+    flex-wrap: wrap; /*Está fazendo as informações se conterem dentro do limite, que no caso é de 200px*/
+    gap: 30px; /*Faz um espaçamento entre os cartões de 30px*/
+    justify-content: center; /*Está centralizando os catrtões*/
+}
+
+.cartao_pokemon{
+    background-color: #d8e3ec;
+    width: 200px;
+    padding: 15px;
+    display: flex; /*TEM QUE USAR O 'FLEX' ANTES DE USAR O 'FLEX DIRECTION'*/
+    flex-direction: column; /*Está colocando todos os termos dos cartões em uma coluna*/
+    align-items: center; /*Alinhado os documentos no centro*/
+    gap: 15px;
+    border-radius: 15px;
+    transition: 0.2s ease-in-out; /*Pequeno efeito que vai acontecer quanto o mouse entrar e sair do cartão*/
+}
+.cartao_pokemon:hover{
+    background-color: #96d9d6;
+}
+
+.modo_escuro .cartao_pokemon{
+    background-color: #a8a8a8;
+}
+
+.informacoes{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #333333; /*Bordar: tamanho, tipo, cor*/
+    border-radius: 10px;
+}
+
+.informacoes span{
+    padding: 5px;
+    text-transform: uppercase; /*Deixa as letras em maiusculo*/
+    font-size: 17px; /*Tamanho da fonte*/
+}
+
+.cartao_pokemon .gif{
+    width: 90px;
+    height: 90px;
+}
+
+.tipos{
+    display: flex;
+    gap: 15px;
+}
+
+main .cartao_pokemon .tipo{ /*Por mais que não exista uma tag com classe 'tipo', exsite tag com a classe 'tipo fogo, tipo agua'. Todas que iniciarem com 'tipo' serão alteradas*/
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.grama{ /*Do mesmo modo que tipo é tratado de maneira geral, a classe 'tipo grama' pode ser chamada só por 'grama', já que só existe uma*/
+    background-color: #7ac74c;
+}
+
+.veneno{
+    background-color: #df67ddfb;
+}
+
+.fogo{
+    background-color: #ee8130;
+}
+
+.agua{
+    background-color: #6390f0;
+}
+
+.inseto{
+    background-color: #a6b91a;
+}
+
+main .descricao{
+    max-height: 80px; /*Limita o tamanho do texto só para 80px*/
+    overflow-y: scroll; /*Coloca uma barra de rolagem no texto (Poderia ser 'hidden', que deixaria o texto escondido)*/
+    font-size: 14px;
+    padding-right: 10px; /*Dá um espaço só na direita*/
+}
